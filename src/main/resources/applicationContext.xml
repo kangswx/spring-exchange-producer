@@ -15,11 +15,11 @@
     <!-- spring为我们分装了RabbitTemplate对象来简化生产者发送数据的过程，对常用的方法进行封装 -->
     <rabbit:template id="template" connection-factory="connectionFactory" exchange="topicExchange"></rabbit:template>
 
-    <!-- 在生产者中配置template对象，用于发送数据 -->
+    <!-- 在生产者中配置template对象，用于发送数据
     <bean id="newsProducer" class="com.kangswx.rabbitmq.exchange.NewsProducer">
         <property name="rabbitTemplate" ref="template"/>
     </bean>
-
-    <!-- 所有产生的数据在rabbit可视化控制台中展示 -->
-    <rabbit:admin connection-factory="connectionFactory"/>
+-->
+    <!-- RabbitAdmin用于创建、绑定、管理队列与交换机 -->
+    <rabbit:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
 </beans>
